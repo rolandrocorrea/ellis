@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  # Serviço da sua aplicação FastAPI
+  api:
+    # Constrói a imagem a partir do Dockerfile no diretório atual.
+    # Certifique-se de que seu arquivo se chame "Dockerfile" (com 'D' maiúsculo).
+    build: .
+    # Mapeia a porta 8000 do seu computador para a porta 8000 do contêiner.
+    container_name: api-app
+    image: api-app:latest
+    ports:
+      - "8000:8000"
+    # Define os volumes para persistência de dados.
+    # Removido o volume do banco de dados
+    volumes:
+      - .:/app
